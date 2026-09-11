@@ -1,0 +1,163 @@
+/* ThemeSelector — designed to sit inside FloatingTools panel */
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+/* ── Trigger button (inline in FloatingTools menu) ───────────── */
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 6px 12px;
+  border: 1px solid rgba(109, 40, 217, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--purple-dark, #1E1B4B);
+  box-shadow: 0 8px 24px rgba(30, 27, 75, 0.14);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font: 800 0.82rem var(--font-main);
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.trigger:hover {
+  border-color: rgba(109, 40, 217, 0.45);
+}
+.triggerOpen {
+  background: rgba(109, 40, 217, 0.12);
+  border-color: rgba(109, 40, 217, 0.5);
+  color: var(--color-primary, #6D28D9);
+}
+.triggerLabel {
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+/* ── Dropdown panel ─────────────────────────────────────────── */
+.panel {
+  position: absolute;
+  bottom: 48px;
+  right: 0;
+  background: var(--color-bg-card, #fff);
+  border: 1.5px solid var(--color-border, rgba(109,40,217,0.1));
+  border-radius: var(--radius-lg, 16px);
+  padding: 16px;
+  width: 200px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: popIn 0.2s var(--ease-pop, ease-out);
+}
+
+/* ── Section ────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sectionTitle {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted, #8c92a0);
+  padding-inline-start: 2px;
+}
+
+/* ── Theme grid ──────────────────────────────────────────────── */
+.themeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.themeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 4px;
+  border-radius: var(--radius-md, 10px);
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: border-color 0.15s, background 0.15s;
+  min-height: 64px;
+}
+.themeBtn:hover { background: var(--purple-light, rgba(109,40,217,0.05)); }
+.themeActive {
+  border-color: var(--color-primary, #6D28D9);
+  background: var(--purple-light, rgba(109,40,217,0.05));
+}
+
+.swatch {
+  width: 40px;
+  height: 28px;
+  border-radius: 8px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.swatchDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+.themeLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--color-text, #28283a);
+  text-align: center;
+}
+
+/* ── Accessibility toggle buttons ────────────────────────────── */
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 10px;
+  border-radius: var(--radius-md, 10px);
+  border: 1.5px solid var(--color-border, rgba(109,40,217,0.1));
+  background: transparent;
+  color: var(--color-text, #28283a);
+  font-family: var(--font-main);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  width: 100%;
+  text-align: start;
+  min-height: 38px;
+}
+.toggleBtn:hover {
+  background: var(--purple-light, rgba(109,40,217,0.05));
+  border-color: var(--color-primary, #6D28D9);
+}
+.toggleActive {
+  background: var(--purple-light, rgba(109,40,217,0.05));
+  border-color: var(--color-primary, #6D28D9);
+  color: var(--color-primary, #6D28D9);
+}
+
+.toggleIcon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+.checkmark {
+  margin-inline-start: auto;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--color-primary, #6D28D9);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .panel { width: 180px; }
+  .trigger { min-height: 34px; padding: 5px 8px; font-size: 0.75rem; }
+}

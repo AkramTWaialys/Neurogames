@@ -1,0 +1,157 @@
+# ── Apache Airflow for NeuroGames (Hybrid Edition) ───────────────────
+# Airflow runs in Docker, but connects to Local PostgreSQL and 
+# Local FastAPI MLOps service (running on the host machine).
+#
+# Build:  docker-compose -f docker-compose-airflow.yaml build
+# Init:   docker-compose -f docker-compose-airflow.yaml up airflow-init
+# Start:  docker-compose -f docker-compose-airflow.yaml up -d
+# UI:     http://localhost:8085  (login: airflow / airflow)
+# Stop:   docker-compose -f docker-compose-airflow.yaml down
+# ─────────────────────────────────────────────────────────────────────
+
+x-airflow-common: &airflow-common
+  build:
+    context: .
+    dockerfile: Dockerfile.airflow
+  env_file: .airflow.env
+  environment:
+    # Point to the MLOps service running on the host machine
+    AIRFLOW_CONN_NEUROGAMES_LOCAL: "http://host.docker.internal:8000"
+    AIRFLOW_CONN_NEUROGAMES_HOST: "http://host.docker.internal:8000"
+  volumes:
+    - ./dags:/opt/airflow/dags          # DAG definitions only
+    - ./airflow-logs:/opt/airflow/logs  # Airflow task logs
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+
+services:
+  # ── PostgreSQL (shared by backend + Airflow) ─────────────────────────
+  postgres:
+    image: postgres:17
+    container_name: neurogames_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: aaaa
+      POSTGRES_DB: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ── One-time DB init ─────────────────────────────────────────────────
+  airflow-init:
+    <<: *airflow-common
+    container_name: neurogames_airflow_init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    entrypoint: /bin/bash
+    command:
+      - -c
+      - |
+        airflow db init &&
+        airflow users create \
+          --username airflow \
+          --password airflow \
+          --firstname Admin \
+          --lastname User \
+          --role Admin \
+          --email admin@neurogames.local
+    restart: "no"
+
+  # ── Webserver (UI on port 8085) ──────────────────────────────────────
+  airflow-webserver:
+    <<: *airflow-common
+    container_name: neurogames_airflow_webserver
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: airflow webserver --port 8080
+    ports:
+      - "8085:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+
+  # ── Scheduler (executes DAGs) ────────────────────────────────────────
+  airflow-scheduler:
+    <<: *airflow-common
+    container_name: neurogames_airflow_scheduler
+    depends_on:
+      postgres:
+        condition: service_healthy
+    command: airflow scheduler
+    restart: unless-stopped
+
+  # ── Prometheus (metrics collection) ─────────────────────────────────
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    container_name: neurogames_prometheus
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  # ── Grafana (dashboards & visualization) ────────────────────────────
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: neurogames_grafana
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: neurogames
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/neurogames.json
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+      - tempo
+    restart: unless-stopped
+
+  # ── OTel Collector (receive spans → forward to Tempo) ───────────────
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.96.0
+    container_name: neurogames_otel_collector
+    command: ["--config=/etc/otel-collector-config.yml"]
+    volumes:
+      - ./monitoring/otel-collector-config.yml:/etc/otel-collector-config.yml:ro
+    ports:
+      - "4317:4317" # OTLP gRPC
+      - "4318:4318" # OTLP HTTP
+    depends_on:
+      - tempo
+    restart: unless-stopped
+
+  # ── Tempo (trace storage) ───────────────────────────────────────────
+  tempo:
+    image: grafana/tempo:2.4.0
+    container_name: neurogames_tempo
+    command: ["-config.file=/etc/tempo.yml"]
+    volumes:
+      - ./monitoring/tempo.yml:/etc/tempo.yml:ro
+      - tempo-data:/tmp/tempo
+    ports:
+      - "3200:3200" # tempo
+      - "4317"      # otlp grpc
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  grafana-data:
+  tempo-data:

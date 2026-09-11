@@ -1,0 +1,15 @@
+# ── Prometheus Configuration for NeuroGames ──────────────────────────────────
+# Scrapes the FastAPI server running in the same Docker Compose network.
+# Start with: docker-compose -f docker-compose-airflow.yaml up -d prometheus grafana
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: "neurogames-api"
+    metrics_path: "/metrics"
+    static_configs:
+      - targets: ["host.docker.internal:8000"]
+        labels:
+          service: "neurogames-fastapi"

@@ -1,0 +1,63 @@
+/* FontToggle — 3-mode radio group (Standard / TDAH / Dyslexie) */
+/* position: relative for FloatingTools container */
+
+.wrapper {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 38px;
+  padding: 4px;
+  border: 1px solid rgba(109, 40, 217, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--purple-dark, #1E1B4B);
+  box-shadow: 0 8px 24px rgba(30, 27, 75, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 0 6px 0 4px;
+  color: var(--color-text-muted, #8c92a0);
+  flex-shrink: 0;
+}
+
+.option {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: var(--font-main);
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: var(--purple-dark, #1E1B4B);
+  transition: background 0.2s, color 0.2s;
+  line-height: 1;
+  user-select: none;
+  min-height: 30px;
+}
+.option:hover {
+  background: rgba(109, 40, 217, 0.08);
+}
+.option:focus-visible {
+  outline: 2px solid var(--color-primary, #6D28D9);
+  outline-offset: 1px;
+}
+
+.active {
+  background: rgba(109, 40, 217, 0.15);
+  color: var(--color-primary, #6D28D9);
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    min-height: 34px;
+    padding: 3px;
+  }
+  .option { padding: 3px 7px; font-size: 0.72rem; }
+  .icon { padding: 0 4px 0 2px; }
+}

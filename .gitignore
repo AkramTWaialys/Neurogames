@@ -1,0 +1,127 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Gemini / Agent
+.agent/
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# ML outputs (models, plots, predictions)
+multigame_pipeline/outputs/
+ai_pipeline/outputs/
+
+# Fake / generated data fixtures
+data/fixtures/fake/*.csv
+data/fake_*.csv
+data/real_*.csv
+
+# Streamlit
+.streamlit/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+*.log
+
+# Test output files (disposable terminal dumps)
+*_output.txt
+*_out.txt
+test_result*.txt
+test_smoke*.txt
+tmp_*.txt
+out.txt
+migration_output.txt
+pytest_*.txt
+pytest_err.log
+test_fail.log
+pytest_report.txt
+
+# Airflow (Docker volumes)
+airflow-logs/
+plugins/
+
+# Project specific ignores
+.gitlab-ci.yml
+WEB_README.md
+Dockerfile
+dvc.yaml
+.kombai/
+Plan.pdf
+at.txt
+mlflow.db
+mlflow_artifacts/
+mlops_data/
+mlops_outputs/
+rapport_semaine_*
+tests/
+neurogames/
+pygbag_test/
+web_frontend/
+
+# SQLite databases (runtime data, not source)
+*.db
+*.db-shm
+*.db-wal
+
+# Backup files
+*.bak
+
+# Next.js build artifacts
+neurogames-app/frontend/.next/
+neurogames-app/frontend/node_modules/
+neurogames-app/frontend/tsconfig.tsbuildinfo
+
+# NestJS build artifacts
+neurogames-app/backend/dist/
+neurogames-app/backend/node_modules/
+
+# Large binary / presentation files
+*.pptx
+
+# Local-only reports and personal files
+codex_rapport.md
+final_rapport.md
+claude_rapport.md
+system_architecture.md
+system_architecture2.md
+supervisor_decision_note.md
+codex_rapport_framework_first.docx
+
+# Local-only scripts / data
+simulate_tester_traffic.py
+restore_admin.py
+tmp/fake_data/
+
+docs/
+data/
+tools/
+PRESENTATION.md

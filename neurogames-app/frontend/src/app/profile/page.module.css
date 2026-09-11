@@ -1,0 +1,144 @@
+.screen {
+  min-height: 100vh;
+  background: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px 48px;
+  margin-inline-start: var(--sidebar-width, 260px);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 0 8px;
+}
+.avatarLarge {
+  font-size: 4rem;
+  width: 90px;
+  height: 90px;
+  border: 3px solid var(--purple);
+  border-radius: 50%;
+  background: rgba(254, 243, 199, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--purple-dark);
+  font-size: 1.5rem;
+  font-weight: 900;
+  text-align: center;
+}
+.levelBadge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--purple);
+  background: var(--purple-light);
+  padding: 4px 16px;
+  border-radius: 999px;
+}
+
+/* Stats row */
+.statsRow { display: flex; gap: 8px; }
+.statCard {
+  flex: 1;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px 6px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.statVal { font-size: 1.1rem; font-weight: 900; color: var(--purple-dark); }
+.statLbl { font-size: 0.65rem; font-weight: 700; color: var(--purple-mid); text-transform: uppercase; }
+
+/* Section title */
+.sectionTitle {
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--purple-dark);
+  margin-top: 4px;
+}
+
+/* Per-game cards */
+.gameCards { display: flex; flex-direction: column; gap: 8px; }
+.gameCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  transition: border-color 0.15s, transform 0.15s var(--ease-pop);
+}
+.gameCard:hover { border-color: var(--purple-mid); transform: translateX(3px); }
+.gameIcon { font-size: 28px; flex-shrink: 0; }
+.gameInfo { flex: 1; min-width: 0; }
+.gameName { font-size: 0.9rem; font-weight: 800; color: var(--purple-dark); }
+.gameSkill { font-size: 0.72rem; font-weight: 600; color: var(--color-text-muted); }
+.gameStats { display: flex; gap: 10px; flex-shrink: 0; }
+.gameStat { text-align: center; }
+.gameStatVal { display: block; font-size: 0.9rem; font-weight: 900; color: var(--purple-dark); }
+.gameStatLbl { display: block; font-size: 0.6rem; font-weight: 700; color: var(--purple-mid); text-transform: uppercase; }
+
+/* Badges */
+.badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  transition: border-color 0.15s, transform 0.1s;
+}
+.badge:hover { border-color: var(--purple); transform: scale(1.05); }
+.badgeLabel { font-size: 0.75rem; font-weight: 700; color: var(--purple-dark); }
+.noBadges {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Report CTA */
+.reportCta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--purple-light), #E0F2FE);
+  border: 2px solid var(--purple-mid);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-decoration: none;
+  transition: transform 0.15s var(--ease-pop), border-color 0.15s;
+}
+.reportCta:hover { transform: translateY(-2px); border-color: var(--purple); }
+.reportCtaIcon { font-size: 2rem; flex-shrink: 0; }
+.reportCtaTitle { font-size: 0.95rem; font-weight: 900; color: var(--purple-dark); }
+.reportCtaSub { font-size: 0.75rem; font-weight: 600; color: var(--purple-mid); }
+.reportCtaBtn {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--purple);
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}

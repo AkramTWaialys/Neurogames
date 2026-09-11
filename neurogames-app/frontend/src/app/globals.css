@@ -1,0 +1,393 @@
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   NeuroGames ÔÇö Design System v2
+   Neurodiversit├® : polices adapt├®es ┬À th├¿mes doux ┬À focus visible ┬À motion r├®duit
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Lexend:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800;900&family=Readex+Pro:wght@300;400;500;600;700&display=swap');
+
+/* ÔöÇÔöÇ Reset ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   DESIGN TOKENS ÔÇö Th├¿me Standard (violet doux)
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+:root {
+  /* ÔöÇÔöÇ Couleurs s├®mantiques ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --color-bg:          #EEE9FF;
+  --color-bg-card:     #ffffff;
+  --color-primary:     #6D28D9;
+  --color-accent:      #0891B2;
+  --color-text:        #1E1B4B;
+  --color-text-muted:  #7C5CCC;
+  --color-border:      #C4B5FD;
+  --color-success:     #059669;
+  --color-warning:     #D97706;
+  --color-error:       #E11D48;
+
+  /* ÔöÇÔöÇ Sidebar ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --sidebar-bg-start:     #1E1B4B;
+  --sidebar-bg-end:       #312E81;
+  --sidebar-text:         #C4B5FD;
+  --sidebar-text-active:  #ffffff;
+  --sidebar-item-hover:   rgba(167, 139, 250, 0.12);
+  --sidebar-item-active:  rgba(167, 139, 250, 0.20);
+  --sidebar-border:       rgba(167, 139, 250, 0.15);
+  --sidebar-width:        260px;
+
+  /* ÔöÇÔöÇ Primitives violet/standard ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --purple-dark:  #4338CA;
+  --purple:       #6D28D9;
+  --purple-mid:   #7C3AED;
+  --purple-light: #EDE9FE;
+  --purple-pale:  #F5F3FF;
+  --teal:         #0891B2;
+  --teal-light:   #CFFAFE;
+  --gold:         #D97706;
+  --gold-light:   #FEF3C7;
+  --green:        #059669;
+  --green-light:  #D1FAE5;
+  --coral:        #E11D48;
+  --indigo-dark:  #1E1B4B;
+  --indigo-mid:   #312E81;
+  --indigo:       #3730A3;
+
+  /* ÔöÇÔöÇ Jeu ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --go-color:   #06d6a0;
+  --nogo-color: #ef476f;
+
+  /* ÔöÇÔöÇ Typographie ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --font-main:            'Nunito', 'Cairo', cursive;
+  --font-size-base:       17px;
+  --line-height-base:     1.75;
+  --letter-spacing-base:  0.01em;
+  --word-spacing-base:    0.04em;
+
+  /* ÔöÇÔöÇ Formes ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* ÔöÇÔöÇ Courbes ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --ease-pop:    cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ÔöÇÔöÇ Focus ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+  --focus-color: var(--color-primary);
+  --focus-ring:  0 0 0 3px rgba(109, 40, 217, 0.45);
+}
+
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   TH├êME : Oc├®an (bleu/cyan ÔÇö apaisant)
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+@media (max-width: 700px) {
+  :root {
+    --sidebar-width: 84px;
+  }
+}
+
+html.theme-ocean {
+  --color-bg:          #DFF4F8;
+  --color-bg-card:     #F0FEFF;
+  --color-primary:     #0277BD;
+  --color-accent:      #00897B;
+  --color-text:        #01283A;
+  --color-text-muted:  #3A7D99;
+  --color-border:      #7FD4E4;
+
+  --sidebar-bg-start:    #01283A;
+  --sidebar-bg-end:      #01579B;
+  --sidebar-text:        #80DEEA;
+  --sidebar-text-active: #ffffff;
+  --sidebar-item-hover:  rgba(128, 222, 234, 0.12);
+  --sidebar-item-active: rgba(128, 222, 234, 0.22);
+  --sidebar-border:      rgba(128, 222, 234, 0.18);
+
+  --purple-light: #DFF4F8;
+  --purple-pale:  #F0FEFF;
+  --purple:       #0277BD;
+  --purple-mid:   #0288D1;
+  --purple-dark:  #01579B;
+  --focus-ring:   0 0 0 3px rgba(2, 119, 189, 0.45);
+}
+
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   TH├êME : For├¬t (vert ÔÇö ancrage, calme)
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+html.theme-forest {
+  --color-bg:          #E3F5E5;
+  --color-bg-card:     #F2FCF3;
+  --color-primary:     #2E7D32;
+  --color-accent:      #00796B;
+  --color-text:        #1B3A2D;
+  --color-text-muted:  #4E8055;
+  --color-border:      #A0D4A4;
+
+  --sidebar-bg-start:    #1B3A2D;
+  --sidebar-bg-end:      #2E5339;
+  --sidebar-text:        #A5D6A7;
+  --sidebar-text-active: #ffffff;
+  --sidebar-item-hover:  rgba(165, 214, 167, 0.12);
+  --sidebar-item-active: rgba(165, 214, 167, 0.22);
+  --sidebar-border:      rgba(165, 214, 167, 0.18);
+
+  --purple-light: #E3F5E5;
+  --purple-pale:  #F2FCF3;
+  --purple:       #2E7D32;
+  --purple-mid:   #388E3C;
+  --purple-dark:  #1B5E20;
+  --focus-ring:   0 0 0 3px rgba(46, 125, 50, 0.45);
+}
+
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   TH├êME : Soleil (orange chaud ÔÇö dynamisant)
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+html.theme-sunset {
+  --color-bg:          #FFF5E8;
+  --color-bg-card:     #FFFCF8;
+  --color-primary:     #D84B00;
+  --color-accent:      #AD1457;
+  --color-text:        #3E1A00;
+  --color-text-muted:  #9A5020;
+  --color-border:      #FFBC70;
+
+  --sidebar-bg-start:    #3E1A00;
+  --sidebar-bg-end:      #6D3200;
+  --sidebar-text:        #FFCC80;
+  --sidebar-text-active: #ffffff;
+  --sidebar-item-hover:  rgba(255, 204, 128, 0.12);
+  --sidebar-item-active: rgba(255, 204, 128, 0.22);
+  --sidebar-border:      rgba(255, 204, 128, 0.18);
+
+  --purple-light: #FFF3E0;
+  --purple-pale:  #FFF5E8;
+  --purple:       #D84B00;
+  --purple-mid:   #E65100;
+  --purple-dark:  #BF360C;
+  --focus-ring:   0 0 0 3px rgba(216, 75, 0, 0.45);
+}
+
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   MODE : Haut contraste (s'applique par-dessus n'importe quel th├¿me)
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+html.high-contrast {
+  /* Variables s├®mantiques forc├®es */
+  --color-text:       #000000;
+  --color-text-muted: #111111;
+  --color-bg-card:    #ffffff;
+  --color-border:     #000000;
+  --sidebar-text:        #ffffff;
+  --sidebar-text-active: #ffffff;
+}
+
+/* Amplification globale du contraste sur tout le rendu */
+html.high-contrast body {
+  filter: contrast(1.35);
+}
+
+/* Texte noir sur fond blanc pour les cartes et contenus */
+html.high-contrast * {
+  border-color: inherit;
+}
+
+/* Boutons ÔÇö noir sur blanc avec bordure ├®paisse visible */
+html.high-contrast .btn-primary {
+  background: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  border: 3px solid #ffffff !important;
+  outline: 2px solid #000000 !important;
+}
+html.high-contrast .btn-secondary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 3px solid #000000 !important;
+}
+html.high-contrast .btn-ghost {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+/* Focus encore plus visible */
+html.high-contrast :focus-visible {
+  outline: 4px solid #000000 !important;
+  outline-offset: 4px !important;
+}
+
+/* ÔöÇÔöÇ Base ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+html, body {
+  width: 100%; height: 100%;
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  background: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+  word-spacing: var(--word-spacing-base);
+}
+
+
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { color: var(--purple-dark); text-decoration: underline; }
+
+/* ÔöÇÔöÇ Focus visible (accessibilit├® clavier) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ÔöÇÔöÇ Animations ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes carouselIn {
+  from { transform: scale(0.93); opacity: 0.5; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+@keyframes celebrate {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.3) rotate(-8deg); }
+  60%  { transform: scale(1.15) rotate(6deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ÔöÇÔöÇ Respect de la pr├®f├®rence syst├¿me (motion r├®duit) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ÔöÇÔöÇ Classe manuelle pour d├®sactiver les animations ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ÔöÇÔöÇ Boutons (partag├®s) ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 800;
+  border-radius: var(--radius-lg);
+  transition: transform 0.15s var(--ease-pop), box-shadow 0.15s, background 0.2s;
+  text-decoration: none;
+  min-height: 48px;
+}
+.btn:active { transform: scale(0.93) !important; }
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--purple-dark) 100%);
+  color: #fff;
+  padding: 14px 30px;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+  background: var(--color-bg-card);
+  color: var(--color-primary);
+  border: 2.5px solid var(--color-primary);
+  padding: 14px 30px;
+  font-size: 1.1rem;
+}
+.btn-secondary:hover { background: var(--purple-light); transform: translateY(-2px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px dashed var(--color-border);
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
+.btn-ghost:hover { background: var(--purple-light); }
+
+.btn-large {
+  padding: 18px;
+  font-size: 1.25rem;
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+/* ÔöÇÔöÇ Barre de d├®filement ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--purple-light); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* ÔöÇÔöÇ Taille de base dyslexie (doit ├¬tre AVANT font-size-compact/large) ÔöÇÔöÇ */
+/* Les r├¿gles ci-dessous la surclassent quand une taille est explicitement choisie */
+html.font-dyslexia { font-size: 19px; }
+
+/* ÔöÇÔöÇ Tailles de police ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+html.font-size-compact { font-size: 14px; }
+/* font-size-normal = d├®faut du navigateur */
+html.font-size-large   { font-size: 20px; }
+
+/* ÔöÇÔöÇ Utilitaires ÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇÔöÇ */
+.hidden { display: none !important; }
+
+/* ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+   MODES DE POLICE
+   ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ */
+
+/* Mode TDAH ÔÇö Readex Pro : lecture renforc├®e, espacement a├®r├® */
+html.font-adhd,
+html.font-adhd body,
+html.font-adhd * {
+  font-family: 'Readex Pro', 'Cairo', sans-serif !important;
+  letter-spacing: 0.025em;
+  word-spacing: 0.1em;
+  line-height: 1.9;
+}
+
+/* Mode Dyslexie ÔÇö Lexend : con├ºu pour am├®liorer la fluidit├® de lecture */
+html.font-dyslexia,
+html.font-dyslexia body,
+html.font-dyslexia * {
+  font-family: 'Lexend', 'Cairo', sans-serif !important;
+  letter-spacing: 0.06em;
+  word-spacing: 0.14em;
+  line-height: 2.0;
+}
+
+/* Compatibilit├® ancienne classe */
+html.adhd-font,
+html.adhd-font body,
+html.adhd-font * {
+  font-family: 'Readex Pro', 'Cairo', sans-serif !important;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+  line-height: 1.9;
+}

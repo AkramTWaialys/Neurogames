@@ -1,0 +1,41 @@
+.switcher {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 6px 10px;
+  border: 1px solid rgba(109, 40, 217, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--purple-dark);
+  box-shadow: 0 12px 30px rgba(30, 27, 75, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.select {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: 800 0.88rem var(--font-main);
+  cursor: pointer;
+  outline: none;
+}
+
+.select option {
+  color: #1E1B4B;
+}
+
+@media (max-width: 640px) {
+  .switcher {
+    min-height: 34px;
+    padding: 5px 8px;
+  }
+
+  .select {
+    max-width: 98px;
+    font-size: 0.78rem;
+  }
+}
+

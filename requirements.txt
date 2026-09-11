@@ -1,0 +1,28 @@
+scikit-learn
+xgboost
+scipy
+matplotlib
+pandas
+numpy
+seaborn
+shap
+umap-learn
+imbalanced-learn
+joblib
+
+# ── MLOps ──
+fastapi
+httpx
+uvicorn
+pydantic>=2.0
+prometheus-client
+prometheus-fastapi-instrumentator
+mlflow>=2.10
+evidently>=0.4
+watchdog
+apscheduler
+pytest
+flake8
+# ── Database ──
+psycopg[binary,pool]
+psycopg2-binary

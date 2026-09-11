@@ -1,0 +1,194 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.questionCard {
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.questionCard:hover {
+  border-color: var(--purple-mid);
+}
+
+.questionText {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--purple-dark);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.optionButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  border: 2px solid #E5E7EB;
+  border-radius: var(--radius-sm);
+  background: #F9FAFB;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-pop);
+}
+
+.optionButton span {
+  font-size: 10px;
+  font-weight: 800;
+  color: #6B7280;
+  text-align: center;
+}
+
+.optionButton:hover {
+  background: white;
+  border-color: var(--purple-mid);
+  transform: translateY(-2px);
+}
+
+.optionSelected {
+  background: var(--purple-pale) !important;
+  border-color: var(--purple) !important;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+}
+
+.optionSelected span {
+  color: var(--purple-dark);
+}
+
+.scorePreview {
+  margin-top: 10px;
+  text-align: center;
+  padding: 12px;
+  background: var(--purple-pale);
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--purple-mid);
+}
+
+.scoreText {
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--purple);
+}
+
+.assessmentTitle {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--purple-dark);
+  margin-bottom: 4px;
+}
+
+.assessmentSubtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--purple-mid);
+  margin-bottom: 12px;
+}
+
+/* ── Response Legend Box ── */
+.legendBox {
+  background: linear-gradient(135deg, #F0ECFF 0%, #E8F4FD 100%);
+  border: 2px solid var(--purple-mid);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 4px;
+  box-shadow: 0 2px 8px rgba(109, 40, 217, 0.08);
+}
+
+.legendToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 14px 18px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--purple-dark);
+  transition: background 0.2s ease;
+}
+
+.legendToggle:hover {
+  background: rgba(109, 40, 217, 0.06);
+}
+
+.legendChevron {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.legendChevronOpen {
+  transform: rotate(180deg);
+}
+
+.legendContent {
+  padding: 0 18px 16px;
+  animation: legendSlideIn 0.3s ease;
+}
+
+@keyframes legendSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.legendGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legendItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: white;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid #E5E7EB;
+  transition: border-color 0.2s ease;
+}
+
+.legendItem:hover {
+  border-color: var(--purple-mid);
+}
+
+.legendEmoji {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--purple-dark);
+  flex-shrink: 0;
+  min-width: 70px;
+}
+
+.legendDesc {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6B7280;
+  line-height: 1.4;
+}

@@ -1,0 +1,55 @@
+.wrapper {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 38px;
+  padding: 4px;
+  border: 1px solid rgba(109, 40, 217, 0.2);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--purple-dark);
+  box-shadow: 0 12px 30px rgba(30, 27, 75, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.option {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: var(--font-main);
+  font-weight: 700;
+  color: var(--purple-dark);
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  line-height: 1;
+  user-select: none;
+}
+
+.option:hover {
+  background: rgba(109, 40, 217, 0.08);
+}
+
+.active {
+  background: rgba(109, 40, 217, 0.15);
+  color: #6D28D9;
+}
+
+.sizeCompact { font-size: 0.7rem; }
+.sizeNormal  { font-size: 0.88rem; }
+.sizeLarge   { font-size: 1.1rem; }
+
+@media (max-width: 640px) {
+  .wrapper {
+    min-height: 34px;
+    padding: 3px;
+  }
+  .option {
+    padding: 3px 7px;
+  }
+  .sizeCompact { font-size: 0.65rem; }
+  .sizeNormal  { font-size: 0.78rem; }
+  .sizeLarge   { font-size: 0.95rem; }
+}

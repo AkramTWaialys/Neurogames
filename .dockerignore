@@ -1,0 +1,17 @@
+# Ignore large local directories
+**/node_modules
+**/__pycache__
+**/.next
+**/.venv
+**/venv
+**/airflow-logs
+**/mlflow_artifacts
+**/mlflow.db
+**/data
+**/mlops_data
+**/mlops_outputs
+**/.git
+**/.vscode
+**/.agents
+**/.agent
+**/.gemini

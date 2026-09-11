@@ -1,0 +1,183 @@
+/* Register page — uses same styles as login page */
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 440px;
+  padding: 20px 20px 48px;
+}
+
+.brand {
+  font-size: 72px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(109, 40, 217, 0.4));
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--purple-dark);
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--purple-mid);
+  margin-top: -6px;
+  text-align: center;
+}
+
+.switchCard {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 6px;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.08);
+}
+
+.switchBtn {
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  background: transparent;
+  color: var(--color-text-secondary, #64748B);
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.switchActive {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(109, 40, 217, 0.2);
+}
+
+.card {
+  width: 100%;
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(109, 40, 217, 0.08);
+}
+.cardTeal { border-color: #67E8F9; }
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.labelTeal {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--teal);
+  margin-bottom: 10px;
+}
+
+.helpText {
+  margin: 0;
+  color: var(--color-text-secondary, #64748B);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.input {
+  width: 100%;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-family: var(--font-main);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  background: var(--purple-pale);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+.input:focus {
+  border-color: var(--purple);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+}
+
+/* Avatar Grid */
+.avatarGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.avatarItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border: 2.5px solid #E5E7EB;
+  border-radius: var(--radius-md);
+  font-size: 28px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: transform 0.15s var(--ease-pop), border-color 0.15s, box-shadow 0.15s;
+}
+.avatarItem:hover { transform: scale(1.05); }
+.avatarSel {
+  border-width: 3px;
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.28);
+  transform: scale(1.08);
+}
+.avatarName {
+  font-size: 10px;
+  font-weight: 700;
+  color: #4B5563;
+  line-height: 1;
+}
+
+/* Error message */
+.error {
+  width: 100%;
+  padding: 10px 14px;
+  background: #FEF2F2;
+  border: 1.5px solid #FECACA;
+  border-radius: var(--radius-sm);
+  color: #DC2626;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Register / login link */
+.registerLink {
+  font-size: 14px;
+  color: var(--color-text-secondary, #64748B);
+  text-align: center;
+}
+.registerLink a {
+  color: var(--purple);
+  font-weight: 700;
+  text-decoration: none;
+}
+.registerLink a:hover {
+  text-decoration: underline;
+}
