@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { BookOpen, History, UploadCloud } from "lucide-react";
@@ -40,7 +40,7 @@ const DEVELOPER_NAV_ITEMS = [
   },
 ];
 
-export default function Sidebar() {
+function SidebarInner() {
   const { t } = useI18n();
   const pathname = usePathname();
   const router = useRouter();
@@ -187,3 +187,12 @@ export default function Sidebar() {
     </aside>
   );
 }
+
+export default function Sidebar() {
+  return (
+    <Suspense fallback={null}>
+      <SidebarInner />
+    </Suspense>
+  );
+}
+

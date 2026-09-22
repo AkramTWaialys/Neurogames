@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   BookOpen,
@@ -552,9 +552,9 @@ function HistoryTab({
 }
 
 /* ─────────────────────────────────────────────
-   Main Page
+   Inner Developer Console Component
 ───────────────────────────────────────────── */
-export default function DeveloperGameRequestsPage() {
+function DeveloperGameRequestsInner() {
   const searchParams = useSearchParams();
   const activeTab = searchParams.get("tab") || "guide";
 
@@ -644,8 +644,6 @@ export default function DeveloperGameRequestsPage() {
     }
   }
 
-
-
   return (
     <div className="adminShell">
       <main className="adminMain">
@@ -654,7 +652,6 @@ export default function DeveloperGameRequestsPage() {
           <h1>Developer Console</h1>
           <p>Prepare, submit, and track browser games for the NeuroGames platform.</p>
         </header>
-
 
         {/* Tab content */}
         {activeTab === "guide" && (
@@ -693,3 +690,12 @@ export default function DeveloperGameRequestsPage() {
     </div>
   );
 }
+
+export default function DeveloperGameRequestsPage() {
+  return (
+    <Suspense fallback={<div className="adminShell"><main className="adminMain">Loading Developer Console…</main></div>}>
+      <DeveloperGameRequestsInner />
+    </Suspense>
+  );
+}
+

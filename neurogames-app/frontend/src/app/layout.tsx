@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import AuthGuard from "@/components/AuthGuard";
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="fr" dir="ltr" suppressHydrationWarning>
       <body>
         <I18nProvider>
-          <Sidebar />
+          <Suspense fallback={null}>
+            <Sidebar />
+          </Suspense>
           <AuthGuard>
             <main>{children}</main>
           </AuthGuard>
@@ -30,3 +33,4 @@ export default function RootLayout({
     </html>
   );
 }
+
